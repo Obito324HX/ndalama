@@ -2,6 +2,18 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --color-ink: 27 24 18;      /* #1B1812 — dark text on light background */
+  --color-paper: 237 230 214; /* #EDE6D6 — light background */
+}
+
+.dark {
+  --color-ink: 237 230 214;   /* light text on dark background */
+  --color-paper: 27 24 18;    /* dark background */
+}
+
 body {
   margin: 0;
+  background-color: rgb(var(--color-paper));
+  transition: background-color 0.15s ease;
 }

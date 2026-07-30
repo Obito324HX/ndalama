@@ -111,7 +111,7 @@ export default function EditTransactionForm({ transaction }: { transaction: Tran
           value={counterpartyName}
           onChange={(e) => setCounterpartyName(e.target.value)}
           placeholder="Name (optional)"
-          className="w-full rounded-lg border border-ink/15 bg-white px-3 py-2.5 text-sm outline-none"
+          className="w-full rounded-lg border border-ink/15 bg-white px-3 py-2.5 text-sm text-gray-900 outline-none"
         />
       </div>
 
@@ -139,7 +139,7 @@ export default function EditTransactionForm({ transaction }: { transaction: Tran
           value={note}
           onChange={(e) => setNote(e.target.value)}
           placeholder="Optional"
-          className="w-full rounded-lg border border-ink/15 bg-white px-3 py-2.5 text-sm outline-none"
+          className="w-full rounded-lg border border-ink/15 bg-white px-3 py-2.5 text-sm text-gray-900 outline-none"
         />
       </div>
 

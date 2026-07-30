@@ -3,6 +3,7 @@ import { sql } from '@/lib/db';
 import { requireUserId } from '@/lib/auth';
 import { Transaction } from '@/lib/types';
 import LogoutButton from './LogoutButton';
+import ThemeToggle from './ThemeToggle';
 
 async function getTodaysSummary() {
   const userId = await requireUserId();
@@ -46,6 +47,7 @@ export default async function DashboardPage() {
           <Link href="/history" className="font-mono text-[10px] text-gray-500 underline">
             History
           </Link>
+          <ThemeToggle />
           <LogoutButton />
         </div>
       </header>
