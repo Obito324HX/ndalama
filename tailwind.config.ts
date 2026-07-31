@@ -11,9 +11,9 @@ const config: Config = {
         rust: '#A8472B',
       },
       fontFamily: {
-        sans: ['IBM Plex Sans', 'sans-serif'],
-        serif: ['Fraunces', 'serif'],
-        mono: ['IBM Plex Mono', 'monospace'],
+        sans: ['var(--font-plex-sans)', 'sans-serif'],
+        serif: ['var(--font-fraunces)', 'serif'],
+        mono: ['var(--font-plex-mono)', 'monospace'],
       },
     },
   },
