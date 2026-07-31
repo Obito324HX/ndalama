@@ -56,7 +56,7 @@ function AddTransactionForm() {
         throw new Error(body.error ?? 'Failed to save entry');
       }
 
-      router.push('/');
+      router.push('/dashboard');
       router.refresh();
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Something went wrong');
@@ -69,7 +69,7 @@ function AddTransactionForm() {
     <main className="mx-auto max-w-md min-h-screen bg-paper text-ink px-5 py-6 font-sans">
       <header className="flex items-baseline justify-between border-b border-ink/10 pb-3">
         <h1 className="font-serif text-lg font-semibold">New entry</h1>
-        <button onClick={() => router.push('/')} className="font-mono text-[11px] text-gray-500">
+        <button onClick={() => router.push('/dashboard')} className="font-mono text-[11px] text-gray-500">
           Cancel
         </button>
       </header>

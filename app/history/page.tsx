@@ -40,7 +40,7 @@ export default async function HistoryPage() {
     <main className="mx-auto max-w-md min-h-screen bg-paper text-ink px-5 py-6 font-sans">
       <header className="flex items-baseline justify-between border-b border-ink/10 pb-3">
         <h1 className="font-serif text-lg font-semibold">History</h1>
-        <Link href="/" className="font-mono text-[11px] text-gray-500">
+        <Link href="/dashboard" className="font-mono text-[11px] text-gray-500">
           Back
         </Link>
       </header>
