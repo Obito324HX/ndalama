@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { ArrowLeft } from 'lucide-react';
 import { sql } from '@/lib/db';
 import { requireUserId } from '@/lib/auth';
 import { Transaction } from '@/lib/types';
@@ -40,8 +41,12 @@ export default async function HistoryPage() {
     <main className="mx-auto max-w-md min-h-screen bg-paper text-ink px-5 py-6 font-sans">
       <header className="flex items-baseline justify-between border-b border-ink/10 pb-3">
         <h1 className="font-serif text-lg font-semibold">History</h1>
-        <Link href="/dashboard" className="font-mono text-[11px] text-gray-500">
-          Back
+        <Link
+          href="/dashboard"
+          aria-label="Back to dashboard"
+          className="flex h-10 w-10 items-center justify-center rounded-full bg-ink/10 text-ink/50 transition-colors hover:bg-ink/15"
+        >
+          <ArrowLeft size={16} strokeWidth={2} />
         </Link>
       </header>
 

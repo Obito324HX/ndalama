@@ -2,6 +2,7 @@
 
 import { useState, Suspense } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
+import { X } from 'lucide-react';
 import { TransactionType, TransactionChannel, CATEGORY_OPTIONS } from '@/lib/types';
 
 const TYPES: TransactionType[] = ['sale', 'expense', 'credit'];
@@ -69,8 +70,12 @@ function AddTransactionForm() {
     <main className="mx-auto max-w-md min-h-screen bg-paper text-ink px-5 py-6 font-sans">
       <header className="flex items-baseline justify-between border-b border-ink/10 pb-3">
         <h1 className="font-serif text-lg font-semibold">New entry</h1>
-        <button onClick={() => router.push('/dashboard')} className="font-mono text-[11px] text-gray-500">
-          Cancel
+        <button
+          onClick={() => router.push('/dashboard')}
+          aria-label="Cancel"
+          className="flex h-10 w-10 items-center justify-center rounded-full bg-ink/10 text-ink/50 transition-colors hover:bg-ink/15"
+        >
+          <X size={16} strokeWidth={2} />
         </button>
       </header>
 

@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
+import { X } from 'lucide-react';
 import { Transaction, TransactionChannel, CATEGORY_OPTIONS } from '@/lib/types';
 
 const CHANNELS: TransactionChannel[] = ['mobile_money', 'cash', 'bank'];
@@ -69,8 +70,12 @@ export default function EditTransactionForm({ transaction }: { transaction: Tran
     <main className="mx-auto max-w-md min-h-screen bg-paper text-ink px-5 py-6 font-sans">
       <header className="flex items-baseline justify-between border-b border-ink/10 pb-3">
         <h1 className="font-serif text-lg font-semibold capitalize">Edit {transaction.type}</h1>
-        <button onClick={() => router.push('/history')} className="font-mono text-[11px] text-gray-500">
-          Cancel
+        <button
+          onClick={() => router.push('/history')}
+          aria-label="Cancel"
+          className="flex h-10 w-10 items-center justify-center rounded-full bg-ink/10 text-ink/50 transition-colors hover:bg-ink/15"
+        >
+          <X size={16} strokeWidth={2} />
         </button>
       </header>
 
