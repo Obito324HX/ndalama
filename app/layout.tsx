@@ -1,5 +1,7 @@
+import type { Metadata, Viewport } from 'next';
 import { Fraunces, IBM_Plex_Sans, IBM_Plex_Mono } from 'next/font/google';
 import './globals.css';
+import RegisterSW from './RegisterSW';
 
 const fraunces = Fraunces({
   subsets: ['latin'],
@@ -21,9 +23,16 @@ const plexMono = IBM_Plex_Mono({
   display: 'swap',
 });
 
-export const metadata = {
+export const metadata: Metadata = {
   title: 'Ndalama',
   description: 'Mobile money reconciliation for small traders',
+  icons: {
+    apple: '/icons/apple-touch-icon.png',
+  },
+};
+
+export const viewport: Viewport = {
+  themeColor: '#1B1812',
 };
 
 const themeInitScript = `
@@ -46,7 +55,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <head>
         <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
       </head>
-      <body>{children}</body>
+      <body>
+        {children}
+        <RegisterSW />
+      </body>
     </html>
   );
 }
