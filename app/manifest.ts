@@ -1,7 +1,7 @@
 import { MetadataRoute } from 'next';
 
 export default function manifest(): MetadataRoute.Manifest {
-  return {
+  const manifestData = {
     name: 'Ndalama',
     short_name: 'Ndalama',
     description: 'Mobile money reconciliation for small traders',
@@ -19,5 +19,16 @@ export default function manifest(): MetadataRoute.Manifest {
         purpose: 'maskable',
       },
     ],
+    share_target: {
+      action: '/share',
+      method: 'GET',
+      params: {
+        title: 'title',
+        text: 'text',
+        url: 'url',
+      },
+    },
   };
+
+  return manifestData as MetadataRoute.Manifest;
 }

@@ -12,14 +12,20 @@ function AddTransactionForm() {
   const router = useRouter();
   const params = useSearchParams();
   const initialType = (params.get('type') as TransactionType) ?? 'sale';
+  const initialChannel = (params.get('channel') as TransactionChannel) ?? 'mobile_money';
+  const initialAmount = params.get('amount') ?? '';
+  const initialCounterparty = params.get('counterparty_name') ?? '';
+  const wasPrefilled = Boolean(params.get('amount') || params.get('counterparty_name'));
 
   const [type, setType] = useState<TransactionType>(
     TYPES.includes(initialType) ? initialType : 'sale'
   );
-  const [channel, setChannel] = useState<TransactionChannel>('mobile_money');
-  const [amount, setAmount] = useState('');
+  const [channel, setChannel] = useState<TransactionChannel>(
+    CHANNELS.includes(initialChannel) ? initialChannel : 'mobile_money'
+  );
+  const [amount, setAmount] = useState(initialAmount);
   const [category, setCategory] = useState<string>(type === 'sale' ? 'sale' : 'other');
-  const [counterpartyName, setCounterpartyName] = useState('');
+  const [counterpartyName, setCounterpartyName] = useState(initialCounterparty);
   const [note, setNote] = useState('');
   const [saving, setSaving] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -78,6 +84,12 @@ function AddTransactionForm() {
           <X size={16} strokeWidth={2} />
         </button>
       </header>
+
+      {wasPrefilled && (
+        <p className="mt-3 rounded-lg bg-amber-600/10 px-3 py-2 font-mono text-[11px] text-amber-700">
+          Filled in from a shared message. Check the details before saving.
+        </p>
+      )}
 
       <div className="mt-5 flex rounded-lg bg-ink/5 p-1">
         {TYPES.map((t) => (
