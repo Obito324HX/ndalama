@@ -10,15 +10,29 @@ export function parseMobileMoneySms(text: string): ParsedSmsResult {
   const amountMatch = cleaned.match(/(?:ZMW|ZMK|K)\s?([\d,]+(?:\.\d{1,2})?)/i);
   const amount = amountMatch ? parseFloat(amountMatch[1].replace(/,/g, '')) : null;
 
-  const receivedWords = /received|deposit|credited|payment of.*from/i;
-  const sentWords = /sent|paid|payment to|withdraw|debited|purchase/i;
-  const looksSent = sentWords.test(cleaned) && !receivedWords.test(cleaned);
-  const type: 'sale' | 'expense' = looksSent ? 'expense' : 'sale';
+  let type: 'sale' | 'expense' = 'sale';
+  if (/received|deposit(ed)?|credited/i.test(cleaned)) {
+    type = 'sale';
+  } else if (/withdraw|sent to|payment of|debited|purchase|top-?up/i.test(cleaned)) {
+    type = 'expense';
+  }
 
-  const nameMatch = cleaned.match(
-    /\b(?:from|to)\s+([A-Za-z][A-Za-z .'-]{1,40}?)(?=\s+(?:on|Ref|Trans|New\s?[Bb]al|Bal|\d|\.|,|$))/i
-  );
-  const counterpartyName = nameMatch ? nameMatch[1].trim() : null;
+  let counterpartyName: string | null = null;
+
+  let m = cleaned.match(/\bsent to\s+([A-Za-z][A-Za-z .'-]{1,40}?)\s+on\s+\d/i);
+  if (m) counterpartyName = m[1].trim();
+
+  if (!counterpartyName) {
+    m = cleaned.match(
+      /\bfrom\s+\d+\s+([A-Za-z][A-Za-z .'-]{1,40}?)(?=\s*[.,]|\s+Bal|\s+Dial|\s+TID|$)/i
+    );
+    if (m) counterpartyName = m[1].trim();
+  }
+
+  if (!counterpartyName) {
+    m = cleaned.match(/Till Number\s+([A-Za-z0-9 .'-]{2,60}?)\.\s*(?:Airtel|Your|$)/i);
+    if (m) counterpartyName = m[1].trim();
+  }
 
   return { amount, type, counterpartyName };
 }
