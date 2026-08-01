@@ -53,7 +53,7 @@ export default async function CreditPage() {
       <ul>
         {rows.length === 0 && (
           <li className="py-6 text-center text-sm text-gray-500">
-            No outstanding credit — everything's settled.
+            No outstanding credit. Everything's settled.
           </li>
         )}
         {rows.map((t) => (

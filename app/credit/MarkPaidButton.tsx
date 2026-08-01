@@ -38,7 +38,7 @@ export default function MarkPaidButton({ id }: { id: string }) {
       >
         {loading ? '...' : 'Mark paid'}
       </button>
-      {error && <p className="mt-1 font-mono text-[9px] text-rust">Failed — try again</p>}
+      {error && <p className="mt-1 font-mono text-[9px] text-rust">Failed, try again</p>}
     </>
   );
 }

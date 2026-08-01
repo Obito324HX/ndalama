@@ -15,7 +15,7 @@ export default function LandingPage() {
         </h2>
         <p className="mt-4 text-[15px] leading-relaxed text-gray-500">
           Log every mobile money sale, expense, and customer credit in seconds.
-          See your daily net at a glance — no spreadsheets, no guesswork.
+          See your daily net at a glance: no spreadsheets, no guesswork.
         </p>
       </section>
 
@@ -25,7 +25,7 @@ export default function LandingPage() {
           <div>
             <p className="text-sm font-semibold">Fast entry</p>
             <p className="mt-0.5 text-[13px] text-gray-500">
-              Log a sale, expense, or credit in a few taps — built for the counter, not the back office.
+              Log a sale, expense, or credit in a few taps. Built for the counter, not the back office.
             </p>
           </div>
         </div>
@@ -34,7 +34,7 @@ export default function LandingPage() {
           <div>
             <p className="text-sm font-semibold">Never lose track of credit</p>
             <p className="mt-0.5 text-[13px] text-gray-500">
-              See exactly who owes you what, and for how long — before it becomes a problem.
+              See exactly who owes you what, and for how long, before it becomes a problem.
             </p>
           </div>
         </div>
@@ -43,7 +43,7 @@ export default function LandingPage() {
           <div>
             <p className="text-sm font-semibold">Your real daily position</p>
             <p className="mt-0.5 text-[13px] text-gray-500">
-              Mobile money, cash, and bank — all in one place, so you know your actual net, not just what moved.
+              Mobile money, cash, and bank, all in one place, so you know your actual net, not just what moved.
             </p>
           </div>
         </div>
